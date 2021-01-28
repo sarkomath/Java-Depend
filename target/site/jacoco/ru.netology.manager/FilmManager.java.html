@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="ru"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>FilmManager.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">film</a> &gt; <a href="index.source.html" class="el_package">ru.netology.manager</a> &gt; <span class="el_source">FilmManager.java</span></div><h1>FilmManager.java</h1><pre class="source lang-java linenums">package ru.netology.manager;
+
+import ru.netology.domain.Film;
+
+<span class="fc" id="L5">public class FilmManager {</span>
+<span class="fc" id="L6">  private Film[] items = new Film[0];</span>
+  private int itemsToReturn;
+
+  // добавление фильма
+  public void add(Film item) {
+<span class="fc" id="L11">    int length = items.length + 1;</span>
+<span class="fc" id="L12">    Film[] tmp = new Film[length];</span>
+<span class="fc" id="L13">    System.arraycopy(items, 0, tmp, 0, items.length);</span>
+<span class="fc" id="L14">    int lastIndex = tmp.length - 1;</span>
+<span class="fc" id="L15">    tmp[lastIndex] = item;</span>
+<span class="fc" id="L16">    items = tmp;</span>
+<span class="fc" id="L17">  }</span>
+
+  // Список фильмов с выдачей в обратном порядке
+  public Film[] getAll() {
+    /*int length = itemsToReturn;
+    if (length &gt; items.length) {
+      length = items.length;
+    }*/
+<span class="fc" id="L25">    Film[] result = new Film[items.length];</span>
+<span class="fc bfc" id="L26" title="All 2 branches covered.">    for (int i = 0; i &lt; result.length; i++) {</span>
+<span class="fc" id="L27">      int index = items.length - i - 1;</span>
+<span class="fc" id="L28">      result[i] = items[index];</span>
+    }
+<span class="fc" id="L30">    return result;</span>
+  }
+
+/*  // удаление по id
+  public void deleteId(int id) {
+    int length = items.length - 1;
+    Film[] tmp = new Film[length];
+    int index = 0;
+    for (Film item : items) {
+      if (item.getId() != id) {
+        tmp[index] = item;
+        index++;
+      }
+    }
+    items = tmp;
+  }*/
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>
