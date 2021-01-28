@@ -4,6 +4,7 @@ import ru.netology.domain.Film;
 
 public class FilmManager {
   private Film[] items = new Film[0];
+  private int itemsToReturn;
 
   // добавление фильма
   public void add(Film item) {
@@ -17,6 +18,10 @@ public class FilmManager {
 
   // Список фильмов с выдачей в обратном порядке
   public Film[] getAll() {
+    /*int length = itemsToReturn;
+    if (length > items.length) {
+      length = items.length;
+    }*/
     Film[] result = new Film[items.length];
     for (int i = 0; i < result.length; i++) {
       int index = items.length - i - 1;
@@ -25,8 +30,8 @@ public class FilmManager {
     return result;
   }
 
-  // удаление по id
-  public void removeById(int id) {
+/*  // удаление по id
+  public void deleteId(int id) {
     int length = items.length - 1;
     Film[] tmp = new Film[length];
     int index = 0;
@@ -37,5 +42,5 @@ public class FilmManager {
       }
     }
     items = tmp;
-  }
+  }*/
 }
