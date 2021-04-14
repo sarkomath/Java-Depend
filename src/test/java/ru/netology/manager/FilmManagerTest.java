@@ -38,7 +38,7 @@ class FilmManagerTest {
     //добавление 10 фильмов
     @Test
     public void AddFilmToManager() {
-        Film[] actual = manager.getAll();
+        Film[] actual = manager.limit();
         Film[] expected = new Film[]{third, second, first};
     }
 
@@ -54,7 +54,7 @@ class FilmManagerTest {
         manager.add(twelfth);
         manager.add(thirteenth);
 
-        Film[] actual = manager.getAll();
+        Film[] actual = manager.limit();
         Film[] expected = new Film[]{thirteenth, twelfth, eleventh, tenth, ninth, eighth, seventh, sixth, fifth, fourth};
     }
 
@@ -62,7 +62,7 @@ class FilmManagerTest {
     @Test
     public void deleteAllFromManager() {
 
-        Film[] actual = manager.getAll();
+        Film[] actual = manager.limit();
         Film[] expected = new Film[]{};
     }
 }
